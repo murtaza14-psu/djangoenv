@@ -8,15 +8,23 @@ from .models import Todo
 
 ###############################################
 
+# this first of all shows the already added tasks in database 
+#inorder of their date
 
+#request basically is the http method like get
+#  post etc falls into request
 def index(request):
 
     item_list = Todo.objects.order_by("-date")
+
+#if the request is post, in our case adding a new task
     if request.method == "POST":
         form = TodoForm(request.POST)
         if form.is_valid():
             form.save()
             return redirect('todo')
+        
+#if it is anything other than post
     form = TodoForm()
 
     page = {

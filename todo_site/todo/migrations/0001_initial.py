@@ -3,7 +3,9 @@
 import django.utils.timezone
 from django.db import migrations, models
 
-
+#Django generates this file automatically based on the models 
+# you’ve defined in
+#  models.py within the app.
 class Migration(migrations.Migration):
 
     initial = True
